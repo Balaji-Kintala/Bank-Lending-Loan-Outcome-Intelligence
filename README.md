@@ -80,7 +80,9 @@ Power BI Dashboard
 Business Insights
         ↓
 Recommendations
+```
 
+---
 
 ## 🧹 Data Cleaning & Preparation
 
@@ -88,18 +90,19 @@ Python with Pandas and NumPy was used to perform data-quality analysis and prepa
 
 The process included:
 
-Data type validation
-Missing-value analysis
-Duplicate detection and removal
-Special-value handling
-Invalid-value checks
-Outlier investigation
-Analytical helper fields
-Data-quality flags
-Loan outcome mapping
-Data Quality
+- Data type validation
+- Missing-value analysis
+- Duplicate detection and removal
+- Special-value handling
+- Invalid-value checks
+- Outlier investigation
+- Analytical helper fields
+- Data-quality flags
+- Loan outcome mapping
 
-The raw dataset contained 1,087 exact duplicate rows, which were removed after investigation.
+### Data Quality
+
+The raw dataset contained **1,087 exact duplicate rows**, which were removed after investigation.
 
 Potential anomalies were investigated rather than blindly deleted.
 
@@ -107,114 +110,149 @@ Legitimate unusual observations were retained, while clearly defined project-lev
 
 The final cleaned dataset contained:
 
-709,119 records and 204 columns
+**709,119 records and 204 columns**
 
 The final analytical dataset contained:
 
-709,119 records and 47 columns
+**709,119 records and 47 columns**
 
-🗄️ SQL Analysis
+---
+
+## 🗄️ SQL Analysis
 
 The cleaned analytical dataset was loaded into MySQL.
 
 SQL analysis included:
 
-Overall loan outcome distribution
-Loan product analysis
-Loan purpose analysis
-DTI analysis
-LTV analysis
-Loan amount analysis
-Income analysis
-Occupancy analysis
-Race-based descriptive analysis
-County-level analysis
-Interest-rate analysis
-Data-quality validation
-Advanced SQL Techniques
+- Overall loan outcome distribution
+- Loan product analysis
+- Loan purpose analysis
+- DTI analysis
+- LTV analysis
+- Loan amount analysis
+- Income analysis
+- Occupancy analysis
+- Race-based descriptive analysis
+- County-level analysis
+- Interest-rate analysis
+- Data-quality validation
+
+### Advanced SQL Techniques
 
 The project also used:
 
-GROUP BY
-CASE
-Aggregate functions
-Common Table Expressions (CTEs)
-Window functions
-RANK()
-Conditional aggregation
-📈 Power BI Dashboard
+- `GROUP BY`
+- `CASE`
+- Aggregate functions
+- Common Table Expressions (CTEs)
+- Window functions
+- `RANK()`
+- Conditional aggregation
+
+---
+
+## 📈 Power BI Dashboard
 
 The Power BI dashboard provides an interactive view of Texas mortgage lending patterns.
 
-KPI Cards
-Total Applications: 709.1K
-Originated Applications: 494.1K
-Denied Applications: 184.0K
-Origination Rate: 69.67%
-Interactive Filters
-Loan Purpose
-Occupancy Type
-Loan Product
-Visualizations
-Average Loan Amount by Loan Product
-Loan Outcome Mix by Product
-Application Mix by Occupancy Type
-Loan Amount vs Property Value
-Loan Application Volume by Purpose
-Denial Rate by DTI Range
-🔎 Key Findings
-Overall Outcomes
+### KPI Cards
 
-Out of 709,119 applications:
+- **Total Applications:** 709.1K
+- **Originated Applications:** 494.1K
+- **Denied Applications:** 184.0K
+- **Origination Rate:** 69.67%
 
-69.67% were originated
-25.95% were denied
-4.37% were approved but not accepted
-Loan Product
+### Interactive Filters
 
-VA First Lien applications had an 84.01% origination rate, followed by FHA First Lien at 83.06%.
+- Loan Purpose
+- Occupancy Type
+- Loan Product
 
-Conventional First Lien had a 68.90% origination rate.
+### Visualizations
 
-Conventional Subordinate Lien showed a much more balanced outcome, with approximately 48.20% originated and 48.32% denied.
+1. Average Loan Amount by Loan Product
+2. Loan Outcome Mix by Product
+3. Application Mix by Occupancy Type
+4. Loan Amount vs Property Value
+5. Loan Application Volume by Purpose
+6. Denial Rate by DTI Range
 
-Loan Characteristics
+---
+
+## 🔎 Key Findings
+
+### Overall Outcomes
+
+Out of **709,119 applications**:
+
+- **69.67%** were originated
+- **25.95%** were denied
+- **4.37%** were approved but not accepted
+
+### Loan Product
+
+VA First Lien applications had an **84.01% origination rate**, followed by FHA First Lien at **83.06%**.
+
+Conventional First Lien had a **68.90% origination rate**.
+
+Conventional Subordinate Lien showed a more balanced outcome, with approximately **48.20% originated** and **48.32% denied**.
+
+### Loan Characteristics
 
 The analysis identified differences in loan outcomes across:
 
-Loan-to-value ranges
-Loan amount ranges
-Debt-to-income ranges
-Interest-rate ranges
-Occupancy types
-Geographic areas
+- Loan-to-value ranges
+- Loan amount ranges
+- Debt-to-income ranges
+- Interest-rate ranges
+- Occupancy types
+- Geographic areas
 
-For example, applications with LTV below 60% had a 63.23% origination rate, while the 90–100% range had an 81.89% origination rate in this dataset.
+For example, applications with LTV below 60% had a **63.23% origination rate**, while the 90–100% range had an **81.89% origination rate** in this dataset.
 
-💡 Business Recommendations
+---
+
+## 💡 Business Recommendations
 
 Based on the descriptive analysis:
 
-Segment lending performance by loan product
+### 1. Segment lending performance by loan product
+
 Different products show substantially different outcome patterns and should be monitored separately.
-Investigate unusual product-level patterns
+
+### 2. Investigate unusual product-level patterns
+
 Products with relatively high denial rates can be examined further to understand the underlying application mix.
-Monitor key loan characteristics
+
+### 3. Monitor key loan characteristics
+
 LTV, DTI, loan amount, income, and interest rate can be used as monitoring dimensions for portfolio analysis.
-Use geographic analysis for planning
+
+### 4. Use geographic analysis for planning
+
 County-level differences can help identify areas requiring deeper investigation or additional lending analysis.
-Strengthen data-quality monitoring
+
+### 5. Strengthen data-quality monitoring
+
 Automated checks for missing, special, and anomalous values can improve the reliability of future lending analytics.
-⚠️ Analytical Limitations
 
-This project is a descriptive analysis of public HMDA mortgage application data.
+---
 
-Associations identified in the analysis do not establish causal relationships.
-HMDA data should not be interpreted as an individual credit-decision model.
-Unusual observations may represent legitimate lending activity and therefore were investigated before exclusion.
-The analysis is based on the 2024 Texas dataset and does not represent all years or all geographic areas.
-Findings should be interpreted within the scope and definitions of the HMDA dataset.
-📁 Repository Structure
+## ⚠️ Analytical Limitations
+
+This project is a **descriptive analysis** of public HMDA mortgage application data.
+
+- Associations identified in the analysis do not establish causal relationships.
+- HMDA data should not be interpreted as an individual credit-decision model.
+- Unusual observations may represent legitimate lending activity and therefore were investigated before exclusion.
+- The analysis is based on the 2024 Texas dataset and does not represent all years or all geographic areas.
+- Findings should be interpreted within the scope and definitions of the HMDA dataset.
+
+---
+
+## 📁 Repository Structure
+
+```text
 Bank-Lending-Loan-Outcome-Intelligence/
 │
 ├── Bank_Lending_Analysis.ipynb
@@ -232,24 +270,32 @@ Bank-Lending-Loan-Outcome-Intelligence/
 │   └── README.md
 │
 └── README.md
-🎯 Project Outcome
+```
+
+---
+
+## 🎯 Project Outcome
 
 This project demonstrates an end-to-end data analyst workflow:
 
-Data Collection → Data Quality → Cleaning → Transformation → SQL Analysis → Visualization → Insights → Business Recommendations
+**Data Collection → Data Quality → Cleaning → Transformation → SQL Analysis → Visualization → Insights → Business Recommendations**
 
 It combines Python, SQL, Excel, and Power BI to transform a large public dataset into an interactive business intelligence solution.
 
-📚 Data Source
+---
 
-Consumer Financial Protection Bureau (CFPB) / Federal Financial Institutions Examination Council (FFIEC)
+## 📚 Data Source
+
+**Consumer Financial Protection Bureau (CFPB) / Federal Financial Institutions Examination Council (FFIEC)**
 
 Official HMDA Data Browser:
 
 https://ffiec.cfpb.gov/data-browser/data/
 
-👤 Author
+---
 
-Balaji Kintala
+## 👤 Author
+
+**Balaji Kintala**
 
 Data Analyst | Python | SQL | Power BI | Excel
